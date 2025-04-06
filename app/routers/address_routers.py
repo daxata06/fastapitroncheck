@@ -7,7 +7,6 @@ from app.models.session import get_db
 from app.services.address_service import AddressService
 from app.expections.address_not_fount_expection import AddressNotFoundError
 from sqlalchemy.ext.asyncio import AsyncSession
-from typing import List
 from app.models.address_data import AddressData
 from typing import List
 
