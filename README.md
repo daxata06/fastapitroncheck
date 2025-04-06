@@ -21,6 +21,7 @@
 }</pre>
 
 <h3>GET - получение последних запросов</h3>
+<p><code>/addressdata/history</code></p>
 <p>Параметры: limit и offset</p>
 <p>Response:</p>
 <pre>[
