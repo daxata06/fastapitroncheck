@@ -8,6 +8,8 @@ from app.services.address_service import AddressService
 from app.expections.address_not_fount_expection import AddressNotFoundError
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List
+from app.models.address_data import AddressData
+from typing import List
 
 
 router = APIRouter(prefix="/addressdata")
@@ -19,7 +21,7 @@ router = APIRouter(prefix="/addressdata")
 async def address(
     address: Address,
     db: AsyncSession = Depends(get_db),
-):
+) -> AddressDataResponse:
     try:
         address_data = await get_data(address=address.address)
         data = AddressDataResponse(
@@ -43,7 +45,7 @@ async def history(
     db: AsyncSession = Depends(get_db),
     limit: int = 100,
     offset: int = 0,
-):
+) -> List[AddressData]:
     address_service = AddressService()
     history = await address_service.get(db=db, skip=offset, limit=limit)
     return history
